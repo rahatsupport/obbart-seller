@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obbart-এ সেলার হন | obbart.com.bd</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand:       #e8380d;
+    --brand-dark:  #c22d09;
+    --brand-light: #fff1ee;
+    --brand-mid:   #f05030;
+    --accent:      #ff6b3d;
+    --dark:        #1a1a1a;
+    --text:        #222222;
+    --muted:       #666666;
+    --border:      #e8e0de;
+    --white:       #ffffff;
+    --bg:          #fafafa;
+    --nav-h:       60px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: var(--nav-h);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .nav-logo img { height: 36px; object-fit: contain; }
+  .nav-cta {
+    background: var(--brand); color: #fff;
+    padding: 9px 22px; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; transition: background 0.18s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--brand-dark); }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    color: #fff;
+    padding: 5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 65% 40%, rgba(232,56,13,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,56,13,0.18);
+    border: 1px solid rgba(232,56,13,0.45);
+    color: #ff8c6e;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 1.25rem; letter-spacing: 0.4px;
+  }
+  .hero h1 {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 1rem; color: #fff;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p {
+    font-size: 1.05rem; color: rgba(255,255,255,0.72);
+    max-width: 520px; margin: 0 auto 2rem;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--brand); color: #fff;
+    padding: 14px 34px; border-radius: 10px;
+    font-size: 1rem; font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(232,56,13,0.38);
+    transition: background 0.18s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.08); color: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 1rem; text-decoration: none; transition: background 0.18s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-stats {
+    display: flex; justify-content: center; gap: 3rem;
+    margin-top: 3.5rem; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; font-size: 1.7rem; font-weight: 700; color: var(--accent); }
+  .hero-stat span { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+  /* SECTION COMMON */
+  section { padding: 4rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: var(--brand-light); color: var(--brand);
+    font-size: 0.78rem; font-weight: 600;
+    padding: 4px 14px; border-radius: 20px;
+    margin-bottom: 0.75rem; letter-spacing: 0.4px;
+  }
+  .section-title {
+    font-family: 'Tiro Bangla', serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 400; color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .section-sub { color: var(--muted); font-size: 0.96rem; margin-bottom: 2.25rem; }
+
+  /* BENEFITS */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .benefit-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .benefit-card:hover {
+    box-shadow: 0 6px 24px rgba(232,56,13,0.10);
+    transform: translateY(-3px);
+  }
+  .benefit-icon {
+    width: 46px; height: 46px;
+    background: var(--brand-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.35rem; margin-bottom: 0.9rem;
+  }
+  .benefit-card h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+  .benefit-card p  { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+
+  /* HOW IT WORKS */
+  .steps-bg { background: var(--white); }
+  .steps { display: flex; flex-direction: column; position: relative; }
+  .steps::before {
+    content: '';
+    position: absolute; left: 21px; top: 24px; bottom: 24px;
+    width: 2px; background: #ede8e6;
+  }
+  .step { display: flex; gap: 1.25rem; padding: 1.2rem 0; position: relative; }
+  .step-num {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: var(--brand); color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem;
+    z-index: 1; border: 3px solid var(--white);
+  }
+  .step:nth-child(2) .step-num { background: var(--brand-mid); }
+  .step:nth-child(3) .step-num { background: var(--accent); }
+  .step:nth-child(4) .step-num { background: var(--brand-dark); }
+  .step-content { padding-top: 8px; }
+  .step-content h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 0.3rem; }
+  .step-content p  { font-size: 0.87rem; color: var(--muted); }
+
+  /* WHO */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+    gap: 1rem;
+  }
+  .who-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem; text-align: center;
+  }
+  .who-card .icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .who-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 0.3rem; }
+  .who-card p  { font-size: 0.82rem; color: var(--muted); }
+
+  /* REQUIREMENTS */
+  .req-bg { background: var(--brand-light); }
+  .req-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .req-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--white); border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .req-list li .icon { font-size: 1.25rem; margin-top: 2px; }
+
+  /* CTA */
+  .cta-section { background: var(--dark); color: #fff; text-align: center; }
+  .cta-section .section-title { color: #fff; margin-bottom: 0.75rem; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin-bottom: 2rem; font-size: 0.97rem; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--brand); color: #fff;
+    padding: 16px 48px; border-radius: 12px;
+    font-size: 1.1rem; font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(232,56,13,0.38);
+    transition: background 0.18s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .cta-note { margin-top: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+  /* FOOTER */
+  footer {
+    background: #111; color: rgba(255,255,255,0.45);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.82rem; border-top: 1px solid #2a2a2a;
+  }
+  footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3.5rem 1.25rem 3rem; }
+    section { padding: 3rem 1.25rem; }
+    .hero-stats { gap: 1.75rem; }
+    nav { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://obbart.com.bd/website_logo/1775649886.png" alt="Obbart">
+  </div>
+  <a href="https://obbart.com.bd/seler_request" class="nav-cta">সেলার হন →</a>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">🛍️ বাংলাদেশের নতুন মার্কেটপ্লেস</div>
+    <h1>আপনার ব্যবসাকে নিয়ে যান<br><em>সারাদেশের সামনে</em></h1>
+    <p>Obbart-এ ফ্রিতে আপনার অনলাইন স্টোর খুলুন। কোনো মাসিক চার্জ নেই, কোনো ঝামেলা নেই।</p>
+    <div class="hero-btns">
+      <a href="https://obbart.com.bd/seler_request" class="btn-primary">এখনই আবেদন করুন</a>
+      <a href="tel:+88801932296372" class="btn-ghost">📞 কথা বলুন</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>ফ্রি</strong><span>রেজিস্ট্রেশন</span></div>
+      <div class="hero-stat"><strong>১০+</strong><span>ক্যাটাগরি</span></div>
+      <div class="hero-stat"><strong>২৪ ঘণ্টা</strong><span>অ্যাপ্রুভাল</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-tag">সুবিধাসমূহ</div>
+    <h2 class="section-title">কেন Obbart-এ সেলার হবেন?</h2>
+    <p class="section-sub">Facebook পেজের চেয়ে বেশি বিশ্বাসযোগ্য, আলাদা ওয়েবসাইটের চেয়ে অনেক সহজ।</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h3>কোনো মাসিক চার্জ নেই</h3>
+        <p>শুধু বিক্রয় হলে তবেই সামান্য কমিশন। আগে থেকে কোনো টাকা দিতে হবে না।</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏪</div>
+        <h3>নিজের স্টোর, নিজের নিয়ন্ত্রণ</h3>
+        <p>প্রোডাক্ট, দাম, স্টক — সব আপনি নিজে ম্যানেজ করবেন। যেকোনো সময় আপডেট করুন।</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌐</div>
+        <h3>রেডি কাস্টমার বেস</h3>
+        <p>আলাদা মার্কেটিং না করলেও সাইটে আসা কাস্টমাররা আপনার প্রোডাক্ট দেখবে।</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📦</div>
+        <h3>Wishlist ও Compare ফিচার</h3>
+        <p>কাস্টমার আপনার প্রোডাক্ট Wishlist-এ রাখে, বারবার ফিরে আসে ও কেনে।</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔒</div>
+        <h3>NID ভেরিফাইড — বিশ্বাসযোগ্য</h3>
+        <p>ভেরিফাইড স্টোর দেখে কাস্টমার বেশি ট্রাস্ট করে, অর্ডার বেশি দেয়।</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <h3>মোবাইল থেকেই ম্যানেজ</h3>
+        <p>কম্পিউটার লাগবে না। মোবাইল দিয়েই স্টোর চালান, অর্ডার দেখুন।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-bg">
+  <div class="container">
+    <div class="section-tag">প্রক্রিয়া</div>
+    <h2 class="section-title">কীভাবে শুরু করবেন?</h2>
+    <p class="section-sub">মাত্র ৪টি ধাপে আপনার স্টোর চালু হয়ে যাবে।</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">১</div>
+        <div class="step-content">
+          <h3>আবেদন ফর্ম পূরণ করুন</h3>
+          <p>obbart.com.bd/seler_request-এ গিয়ে নাম, WhatsApp নম্বর ও NID-এর ছবি দিন।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">২</div>
+        <div class="step-content">
+          <h3>২৪ ঘণ্টায় অ্যাপ্রুভাল</h3>
+          <p>আমরা তথ্য যাচাই করে আপনাকে WhatsApp-এ জানাবো। স্টোর অ্যাক্টিভ হয়ে যাবে।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">৩</div>
+        <div class="step-content">
+          <h3>প্রোডাক্ট আপলোড করুন</h3>
+          <p>ছবি, বিবরণ ও দাম দিয়ে প্রোডাক্ট লিস্ট করুন। যত খুশি তত প্রোডাক্ট যোগ করুন।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">৪</div>
+        <div class="step-content">
+          <h3>অর্ডার পান, পেমেন্ট নিন</h3>
+          <p>কাস্টমার অর্ডার দিলে নোটিফিকেশন পাবেন। পেমেন্ট সরাসরি আপনার কাছে আসবে।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-tag">কারা আবেদন করতে পারবেন</div>
+    <h2 class="section-title">আপনিও পারবেন!</h2>
+    <p class="section-sub">যেকোনো বয়সের, যেকোনো জায়গার মানুষ Obbart-এ সেলার হতে পারবেন।</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="icon">👩‍💼</div>
+        <h3>গৃহিণী উদ্যোক্তা</h3>
+        <p>ঘরে বসে হ্যান্ডমেড বা রিসেল বিজনেস চালান</p>
+      </div>
+      <div class="who-card">
+        <div class="icon">🛒</div>
+        <h3>ছোট দোকানদার</h3>
+        <p>দোকানের পাশাপাশি অনলাইনেও বিক্রি বাড়ান</p>
+      </div>
+      <div class="who-card">
+        <div class="icon">📦</div>
+        <h3>পাইকারি ব্যবসায়ী</h3>
+        <p>সারাদেশে কাস্টমারের কাছে সরাসরি পৌঁছান</p>
+      </div>
+      <div class="who-card">
+        <div class="icon">🎓</div>
+        <h3>শিক্ষার্থী উদ্যোক্তা</h3>
+        <p>পড়াশোনার পাশাপাশি আয় করুন নিজের স্টোরে</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="req-bg">
+  <div class="container">
+    <div class="section-tag">প্রয়োজনীয় কাগজপত্র</div>
+    <h2 class="section-title">রেজিস্ট্রেশনে কী লাগবে?</h2>
+    <p class="section-sub">মাত্র ৩টি জিনিস — ৫ মিনিটেই হয়ে যাবে।</p>
+    <ul class="req-list">
+      <li>
+        <span class="icon">📛</span>
+        <div>
+          <strong>আপনার নাম ও WhatsApp/Telegram নম্বর</strong><br>
+          <span style="font-size:0.85rem;color:var(--muted)">যোগাযোগ ও অ্যাপ্রুভালের জন্য</span>
+        </div>
+      </li>
+      <li>
+        <span class="icon">🪪</span>
+        <div>
+          <strong>জাতীয় পরিচয়পত্র (NID) — সামনের ছবি</strong><br>
+          <span style="font-size:0.85rem;color:var(--muted)">পরিষ্কার ছবি তুলে আপলোড করুন</span>
+        </div>
+      </li>
+      <li>
+        <span class="icon">🪪</span>
+        <div>
+          <strong>জাতীয় পরিচয়পত্র (NID) — পেছনের ছবি</strong><br>
+          <span style="font-size:0.85rem;color:var(--muted)">উভয় পাশের ছবি প্রয়োজন</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">আজই শুরু করুন</h2>
+    <p>দেরি না করে এখনই আবেদন করুন। ২৪ ঘণ্টার মধ্যে আপনার স্টোর চালু হবে।</p>
+    <a href="https://obbart.com.bd/seler_request" class="cta-btn">ফ্রি রেজিস্ট্রেশন করুন →</a>
+    <p class="cta-note">প্রশ্ন থাকলে: 01932296372 &nbsp;|&nbsp; contract@obbart.com.bd</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="https://obbart.com.bd">Obbart.com.bd</a> — Narshingdi, Dhaka</p>
+</footer>
+
+</body>
+</html>
